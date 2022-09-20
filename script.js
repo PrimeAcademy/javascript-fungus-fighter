@@ -1,4 +1,5 @@
 $(document).ready(onReady);
+let timer;
 
 const state = {
     hp: 100,
@@ -13,41 +14,34 @@ function onReady() {
 }
 
 function onArcaneSceptre() {
-    state.hp -= 14;
-    state.ap -= 12;
-
-    state.hp = Math.max(state.hp, 0);
-    state.ap = Math.max(state.ap, 0);
-
-    render();
+    updateScores(-14, -12);
 }
 
 function onEntangle() {
-    state.hp -= 9;
-    state.ap -= 23;
-
-    state.hp = Math.max(state.hp, 0);
-    state.ap = Math.max(state.ap, 0);
-
-    render();
+    updateScores(-9, -23);
 }
 
 function onDragonBlade() {
-    state.hp -= 47;
-    state.ap -= 38;
-
-    state.hp = Math.max(state.hp, 0);
-    state.ap = Math.max(state.ap, 0);
-
-    render();
+    updateScores(-47, -38);
 }
 
 function onStarFire() {
-    state.hp -= 25;
-    state.ap -= 33;
+    updateScores(-25, -33);
+}
+
+function updateScores(hp, ap) {
+    state.hp += hp;
+    state.ap += ap;
 
     state.hp = Math.max(state.hp, 0);
     state.ap = Math.max(state.ap, 0);
+
+    // Regenerate!
+    if (hp < 50 && !timer) {
+        timer = setInterval(function() {
+            updateScores(1, 0);
+        }, 1000);
+    }
 
     render();
 }
