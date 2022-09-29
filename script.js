@@ -52,7 +52,7 @@ function render() {
     $('#ap-meter').val(state.ap);
 
     // Render HP updates
-    $('.hp-text').text(`${state.hp} AP`);
+    $('.hp-text').text(`${state.hp} HP`);
     $('#hp-meter').val(state.hp);
 
     // Check if mushroom is dead
