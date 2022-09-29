@@ -36,6 +36,9 @@ function updateScores(hp, ap) {
     state.hp = Math.max(state.hp, 0);
     state.ap = Math.max(state.ap, 0);
 
+    state.hp = Math.min(state.hp, 100);
+    state.ap = Math.min(state.ap, 100);
+
     // Regenerate!
     if (hp < 50 && !timer) {
         timer = setInterval(function() {
