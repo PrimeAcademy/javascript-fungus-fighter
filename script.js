@@ -37,11 +37,11 @@ function attack (){
     apCost -=23
     fungusHP -=9
     }
-    else if ($(this).hasClass("dragon blade")){
+    else if ($(this).hasClass("dragon-blade")){
         apCost -= 38
         fungusHP -= 47
     }
-    else if ($(this).hasClass("star fire")){
+    else if ($(this).hasClass("star-fire")){
         apCost -= 33
         fungusHP -=25
     }
@@ -55,8 +55,17 @@ function attack (){
 function render (){
     $('#hp-meter').val(fungusHP)
     console.log('We want to decrease the HP damage of Fungus' , fungusHP);
+    // Now we have it so when you click on an attack the Fungus HP decreases
     $('#ap-meter').val(apCost)
     console.log('We want to decrease the AP Cost Bar', apCost);
+    // Now we have it so when you click on an attack the AP cost decreases as well as fungus HP
+    $('.hp-text').text(fungusHP)
+    console.log("when the weapon button is clicked it will decrease the Fungus HP text from 100" , fungusHP);
+// Now we have it so when the weapon button is clicked then it will decrease the text above the fungus HP bar starting at 100
+    $('.ap-text').text(apCost)
+    console.log('When we click the weapon button it will decrease the text above the AP bar', apCost);
+// Now we have it so when the weapon button is clicked then it will decrease the text above the AP bar
+   
 
 }
 
