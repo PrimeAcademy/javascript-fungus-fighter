@@ -29,9 +29,11 @@ console.log(`Attack when button is weapon button is clicked` , attack);
 }
 function attack (){
     if($(this).hasClass("arcane-sceptre")) {
-        apCost -= 12
-        fungusHP -= 14
-    }
+        (apCost > 12)
+            apCost -= 12
+            fungusHP -= 14
+        }
+    
     else if($(this).hasClass("entangle")){
 
     apCost -=23
@@ -49,8 +51,12 @@ function attack (){
         console.log("this isnt working");
 
     }
+   
+    
     render ();
-}// We create a function for the attack. So when the user selects anything with the class of the different weapon names it causes an attack.
+}
+// We create a function for the attack. So when the user selects anything with the class of the different weapon names it causes an attack.
+
 
 function render (){
     $('#hp-meter').val(fungusHP)
@@ -65,8 +71,35 @@ function render (){
     $('.ap-text').text(apCost)
     console.log('When we click the weapon button it will decrease the text above the AP bar', apCost);
 // Now we have it so when the weapon button is clicked then it will decrease the text above the AP bar
+   if (fungusHP <= 0){
+    $(".freaky-fungus.walk").removeClass("walk").addClass("dead");
+   } // We have it set up so if the fungus HP reaches 0 or  lower than the Fungus falls over dead
+else if (apCost <= 0 ){
+    $(".freaky-fungus.walk").removeClass("walk").addClass("jump");
+}  //We have it set up so if the AP Cost is less than or equal to 0 before the Fungus HP falls to 0 then fungus does a jump
+}
+ if (apCost === 0){
+        $(".attack-btn").attr("disabled",true);
+        console.log('disable attack button if APCost =0' , apCost);
+    }
+   if (apCost < 12) {
+    $(".arcane-sceptre").attr("disabled",true);
+}
+else if (apCost < 38) {
+    $("dragon-blade").attr("disabled",true);
+}
+else if (apCost < 23 ) {
+    $("entangle").attr("disabled",true);
    
+}
+else if (apCost < 33 ){
+    $("star-fire").attr("disabled",true);
+}
+if (fungusHP <=0) {
+    $('.freaky-fungus.walk').removeClass("walk").addClass("dead");
 
 }
+else if (apCost < 12 ) {
+    $('.freaky-fungus.walk').removeClass("walk").addClass("jump");
 
-
+}
