@@ -13,20 +13,23 @@
 <body>
     <div class="container">
         <img src="./images/forest-bg-dk.png" alt="forest bg" class="img-bg">
-
         <div class="attacks">
-            <div class="ap-text">100 AP</div>
+            <!-- This is where we change the attack points -->
+            <div id="ap-text" class="ap-text">100 AP</div>
             <progress id="ap-meter" value="100" max="100"></progress>
-            <button class="attack-btn arcane-scepter"></button>
-            <button class="attack-btn entangle"></button>
-            <button class="attack-btn dragon-blade"></button>
-            <button class="attack-btn star-fire"></button>
+            <!-- Attack buttons -->
+            <button onclick="makeAttack(event, 'arcaneScepter')" class="attack-btn arcane-scepter"></button>
+            <button onclick="makeAttack(event, 'entangle')" class="attack-btn entangle"></button>
+            <button onclick="makeAttack(event, 'dragonBlade')" class="attack-btn dragon-blade"></button>
+            <button onclick="makeAttack(event, 'starFire')" class="attack-btn star-fire"></button>
         </div>
 
         <div class="enemy">
-            <div class="hp-text">100 HP</div>
+            <!-- This is where we change the health points -->
+            <div id="hp-text" class="hp-text">100 HP</div>
             <progress id="hp-meter" value="100" max="100"></progress>
-            <div class="freaky-fungus walk"></div>
+            <!-- Change this class depending on who wins -->
+            <div id='freaky-fungus' class="freaky-fungus walk"></div>
         </div>
     </div>
 </body>
