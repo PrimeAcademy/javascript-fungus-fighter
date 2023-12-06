@@ -3,6 +3,17 @@
 // Example:
 // let fungusHP = 100;
 
+let playerAP = 100
+let fungusHP = 100
+
+// make array for attacks
+
+let attacks = [
+
+
+    
+]
+
 function onReady() {
     console.log("Ready to go!")
     
