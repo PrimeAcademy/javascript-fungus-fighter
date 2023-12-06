@@ -32,6 +32,25 @@ let attacks = [
     }
 ];
 
+// make function for player attack
+function doBattle(event) {
+    console.log('player is attacking');
+
+    // find the object within the attacks array
+    let attack = attacks.find(function(attack) {
+        return attack.name === attackName;
+    });
+
+    // ap cost
+    let apCost = attack.apCost;
+
+    // hp damage
+    let hpDamage = attack.hpDamage;
+}
+
+
+
+
 function onReady() {
     console.log("Ready to go!")
     
